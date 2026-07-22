@@ -24,6 +24,10 @@ app.use((_req, res, next) => {
 app.use(express.json({ limit: "1mb" }));
 app.use(morgan(env.NODE_ENV === "production" ? "combined" : "dev"));
 
+app.get("/", (_req, res) => {
+  res.json({ success: true, message: "IMEI Guardian Pro API is running smoothly at root." });
+});
+
 app.get("/api/health", (_req, res) => {
   res.json({ success: true, message: "IMEI Guardian Pro API is running" });
 });
